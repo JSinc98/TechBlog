@@ -1,24 +1,32 @@
-const User = require('../models');
+const {User} = require('../models');
 
 const userSeed = [
     {
-        username: 'techy'
+        id:1,
+        username: 'techy',
         password: '12345'
     },
     {
-        username: 'blogman'
+        id: 2,
+        username: 'blogman',
         password: '67890'
     },
     {
-        username: 'datagirl'
+        id: 3,
+        username: 'datagirl',
         password: 'password'
     },
     {
-        username: 'jimbo'
+        id: 4,
+        username: 'jimbo',
         password: 'hellou'
     },
 ];
 
-const seedingUsers = () => User.bulkcreate(userSeed);
+const seedingUsers = () => User.bulkCreate(userSeed, {
+    individualHooks: true,
+    returning: true,
+}
+);
 
 module.exports = seedingUsers;

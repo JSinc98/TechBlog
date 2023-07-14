@@ -1,9 +1,11 @@
 <section class="flex flex-wrap justify-content-center bg-blue-100 rounded shadow-sm">
 <h1 class="text-center">Blog Title: {{post.title}}</h1>
 <div class="justfiy-content-center">{{post.content}}</div>
-{{if post.comments}}
+{{#if post.comments}}
 {{#each post.comments}}
 <div>{{comment}}</div>
 <div>Posted by: {{user.username}} on {{timestamp}}</div>
+
+{{/each}}
+{{/if}}
 </section>
-<script src="/js/jobicon.js"></script>
