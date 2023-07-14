@@ -17,4 +17,4 @@ const login = async (event) => {
         };
       };
     };
-    document.querySelector('#login-btn').addEventListener('click', login);
+    document.querySelector('#login').addEventListener('click', login);

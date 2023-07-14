@@ -13,4 +13,4 @@ const createComment = async (event) => {
     document.location.reload();
 };
 
-document.querySelector('#comment-button').addEventListener('click', createComment);
+document.querySelector('#commentbutton').addEventListener('click', createComment);

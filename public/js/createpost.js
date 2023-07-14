@@ -16,4 +16,4 @@ const createpost = async function(event) {
     document.location.replace('/homepage');
 };
 
-document.querySelector('#createpost').addEventListener('click', createpost);
+document.querySelector('#createpostbutton').addEventListener('click', createpost);

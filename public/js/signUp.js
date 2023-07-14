@@ -20,4 +20,4 @@ const signup = async (event) => {
       }
 };
 
-document.querySelector('#signup-btn').addEventListener('click', signup);
+document.querySelector('#signUp').addEventListener('click', signup);

@@ -1,0 +1,21 @@
+<h1 class="text-center">Dashboard</h1>
+{{#each posts as |singleblog|}}
+<a href="/dashboard/{{post.post.id}}">
+<h4>{{posts.title}}</h4>
+<p>{{posts.content}}</p>
+<p>created on: {{posts.timestamp}}</p>
+</a>
+{{#if posts.comments}}
+<h5>Comments:</h5>
+{{#each posts.comments}}
+    <p>{{comment}}</p>
+    <p>By: {{user.username}} on {{timestamp}}</p>
+{{/each}}
+{{/if}}
+{{/each}}
+
+<a href="/dashboard/{{posts.id}}">
+    <a href="user/post">
+        <button type="button">Create New Post</button>
+    </a>
+</a>
