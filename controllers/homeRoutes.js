@@ -1,9 +1,9 @@
-const sequelize = require("../config/connection");
+// const sequelize = require("../config/connection");
 const { Comment, Post, User } = require('../models');
 const router = require("express").Router();
 
 // route for getting all posts (when user not logged in)
-router.get('/homepage', (req, res) =>{
+router.get('/', (req, res) =>{
   Post.findAll({
     include: [User]
   })
@@ -18,7 +18,7 @@ router.get('/homepage', (req, res) =>{
   });
 });
 // route for getting a single post by Id
-router.get('/post/id', (req, res) =>{
+router.get('/post/:id', (req, res) =>{
   Post.findByPk(req.params.id, {
     include: [
       {model: User, attributes:{

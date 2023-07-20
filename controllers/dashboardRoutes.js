@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 
-router.get('/dashboard', async (req, res) => {
+router.get('/', async (req, res) => {
     const postData = await Post.findAll({
         where: {
             user_id: req.session.user_id,
@@ -29,7 +29,7 @@ router.get('/dashboard', async (req, res) => {
 });
 
 
-router.get('/post/id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/user/login');
     } else {
