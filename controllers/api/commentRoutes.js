@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
 
 
-router.get('/', async (req, res) => {
+router.get('/post/id', async (req, res) => {
     const commentData = await Comment.findAll({
         where: {
             user_id: req.session.user_id,
@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
 });
 
 
-router.get('/:id', async (req, res) => {
+router.get('/post/id', async (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/user/login');
     } else {
@@ -68,7 +68,7 @@ router.post('/', async (req, res) => {
 });
 
 
-router.put('/:id', (req, res) => {
+router.put('/post/id', (req, res) => {
     Comment.update(
       {
         comment: req.body.comment,
@@ -83,7 +83,7 @@ router.put('/:id', (req, res) => {
     .then((updatedComment) => {res.json('Comment Updated')}).catch((err) => res.json(err));});
 
 
-router.delete('/:id', (req, res) => {
+router.delete('/post/id', (req, res) => {
     Comment.destroy({
         where: {
             comment_id: req.params.id,
