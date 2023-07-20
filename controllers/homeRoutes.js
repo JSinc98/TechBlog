@@ -3,7 +3,7 @@ const { Comment, Post, User } = require('../models');
 const router = require("express").Router();
 
 // route for getting all posts (when user not logged in)
-router.get('/', (req, res) =>{
+router.get('/homepage', (req, res) =>{
   Post.findAll({
     include: [User]
   })
