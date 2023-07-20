@@ -1,14 +1,21 @@
-<section class="flex flex-wrap justify-content-center bg-blue-100 rounded shadow-sm">
-<h1 class="text-center">Blog Title: {{post.title}}</h1>
-<div class="justfiy-content-center">{{post.content}}</div>
+<section class="block justify-center bg-blue-100 rounded shadow-sm">
+<h1 class="text-center p-4 border-2 rounded border-black">Blog Title: {{post.title}}</h1>
+<div class="p-2"></div>
+<div class="justfiy-center items-center text-center  p-4">Content:</div>
+<div class="justfiy-center items-center text-center border-2 rounded border-black p-8">{{post.content}}</div>
+<div class="p-8 text-center border-2 rounded border-black">
+    <div>Comments:</div>
 {{#if post.comments}}
 {{#each post.comments}}
-<div>{{comment}}</div>
+<div class="p-4 text-center border-2 rounded border-black">{{comment}}</div>
 <div>Posted by: {{user.username}} on {{timestamp}}</div>
 
 {{/each}}
 {{/if}}
+</div>
 <label class="text-gray-700">Comment Here</label>
     <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 mb-4" type="text" id="comment">
 <button type="submit" class="bg-blue-500 w-full text-gray-100 py-2 hover-bg-blue-700 transition-colors" id="commentbutton">Submit Comment</button>
 </section>
+
+<script src="../public/js/createcomment.js"></script>
