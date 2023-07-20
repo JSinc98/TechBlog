@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
 
 // Getting all Post data
-router.get('/', async (req, res) => {
+router.get('/post/id', async (req, res) => {
     const postData = await Post.findAll({
         include: [
             {
@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 });
 
 
-router.post('/', async (req, res) => {
+router.post('/post/id', async (req, res) => {
     try { 
         const postData = await Post.create({
             title: req.body.title,
@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
 });
 
 
-router.get('/:id', async (req, res) => {
+router.get('post/id', async (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/user/login');
     } else {
@@ -71,7 +71,7 @@ router.get('/:id', async (req, res) => {
 });
 
 
-router.put('/:id', (req, res) => {
+router.put('/post/id', (req, res) => {
     Post.update(
       {
         title: req.body.title,
@@ -87,7 +87,7 @@ router.put('/:id', (req, res) => {
     .then((updatedPost) => {res.json('Post Updated')}).catch((err) => res.json(err));});
 
 
-router.delete('/:id', (req, res) => {
+router.delete('/post/id', (req, res) => {
     Post.destroy({
         where: {
             post_id: req.params.id,
